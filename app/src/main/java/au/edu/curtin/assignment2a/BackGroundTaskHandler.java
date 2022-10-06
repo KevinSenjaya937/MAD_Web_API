@@ -2,6 +2,7 @@ package au.edu.curtin.assignment2a;
 
 import android.app.Activity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class BackGroundTaskHandler implements Runnable{
     UserFragment userFragment;
     UserController userController;
 
-    public BackGroundTaskHandler(Activity uiActivity, UserFragment userFragment, FragmentManager fm, UserController userController) {
+    public BackGroundTaskHandler(Activity uiActivity, UserFragment userFragment, FragmentManager fm, UserController userController, ProgressBar progressBar) {
         this.uiActivity = uiActivity;
 //        this.searchKey = searchValue;
         this.progressBar = progressBar;
@@ -90,7 +91,7 @@ public class BackGroundTaskHandler implements Runnable{
         uiActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-//                progressBar.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
         showToast("Search Starts");
@@ -111,7 +112,7 @@ public class BackGroundTaskHandler implements Runnable{
         uiActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-//                progressBar.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
         return  searchResponseData;
@@ -121,7 +122,7 @@ public class BackGroundTaskHandler implements Runnable{
         uiActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-//                progressBar.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
         showToast("Posts Retrieval Starts");
@@ -142,7 +143,7 @@ public class BackGroundTaskHandler implements Runnable{
         uiActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-//                progressBar.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
         return  postsResponseData;
