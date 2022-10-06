@@ -34,4 +34,13 @@ class UserController {
             return ArrayList<Post>()
         }
     }
+
+    fun getUser(userID: Int): User? {
+        for (user in userList) {
+            if (user.id == userID) {
+                return user
+            }
+        }
+        return null
+    }
 }

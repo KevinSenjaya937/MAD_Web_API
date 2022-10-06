@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import au.edu.curtin.assignment2a.R
+import au.edu.curtin.assignment2a.controllers.UserController
 import au.edu.curtin.userinfo.User
 
 
-class UserDetailsFragment(private val user: User) : Fragment() {
+class UserDetailsFragment(private val user: User, private val controller: UserController) : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +45,8 @@ class UserDetailsFragment(private val user: User) : Fragment() {
         val companyName = view.findViewById<TextView>(R.id.companyNameHelperText)
         val catchPhrase = view.findViewById<TextView>(R.id.catchPhraseHelperText)
         val slogan = view.findViewById<TextView>(R.id.sloganHelperText)
+        val backBtn = view.findViewById<Button>(R.id.backBtn)
+        val getPostsBtn = view.findViewById<Button>(R.id.getPostsBtn)
 
         id.text = "ID: ${user.id}"
         name.text = "Name: ${user.name}"
@@ -59,6 +63,20 @@ class UserDetailsFragment(private val user: User) : Fragment() {
         companyName.text = "Company Name: ${user.company.name}"
         catchPhrase.text = "Catch Phrase: ${user.company.catchPhrase}"
         slogan.text = "Business Slogan: ${user.company.bs}"
+
+        backBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.userListFragment, UserFragment(controller))
+                commit()
+            }
+        }
+
+        getPostsBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.userListFragment, PostsFragment(controller, user.id))
+                commit()
+            }
+        }
     }
 
 }

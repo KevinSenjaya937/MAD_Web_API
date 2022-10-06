@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Kevin Senjaya/AndroidStudioProjects/Assignment2A/app/src/main/res/layout/activity_main.xml" value="0.2341069626639758" />
+        <entry key="..\:/Users/Kevin Senjaya/AndroidStudioProjects/Assignment2A/app/src/main/res/layout/fragment_posts.xml" value="0.484375" />
         <entry key="..\:/Users/Kevin Senjaya/AndroidStudioProjects/Assignment2A/app/src/main/res/layout/fragment_user.xml" value="0.33" />
-        <entry key="..\:/Users/Kevin Senjaya/AndroidStudioProjects/Assignment2A/app/src/main/res/layout/fragment_user_details.xml" value="0.75" />
+        <entry key="..\:/Users/Kevin Senjaya/AndroidStudioProjects/Assignment2A/app/src/main/res/layout/fragment_user_details.xml" value="0.1" />
+        <entry key="..\:/Users/Kevin Senjaya/AndroidStudioProjects/Assignment2A/app/src/main/res/layout/post_item.xml" value="0.5020833333333333" />
         <entry key="..\:/Users/Kevin Senjaya/AndroidStudioProjects/Assignment2A/app/src/main/res/layout/user_item.xml" value="0.5" />
       </map>
     </option>
