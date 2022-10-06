@@ -79,7 +79,7 @@ public class BackGroundTaskHandler implements Runnable{
         uiActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                progressBar.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.VISIBLE);
             }
         });
         showToast("Search Starts");
@@ -100,7 +100,7 @@ public class BackGroundTaskHandler implements Runnable{
         uiActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                progressBar.setVisibility(View.INVISIBLE);
+//                progressBar.setVisibility(View.INVISIBLE);
             }
         });
         return  searchResponseData;
@@ -110,7 +110,7 @@ public class BackGroundTaskHandler implements Runnable{
         uiActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                progressBar.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.VISIBLE);
             }
         });
         showToast("Image Retrieval Starts");
@@ -131,7 +131,7 @@ public class BackGroundTaskHandler implements Runnable{
         uiActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                progressBar.setVisibility(View.INVISIBLE);
+//                progressBar.setVisibility(View.INVISIBLE);
             }
         });
         return  imageResponseData;
