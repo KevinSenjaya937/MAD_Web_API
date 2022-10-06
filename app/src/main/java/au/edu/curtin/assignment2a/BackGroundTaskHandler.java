@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentManager;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -20,6 +22,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import au.edu.curtin.assignment2a.fragments.UserFragment;
 import au.edu.curtin.userinfo.User;
 
 public class BackGroundTaskHandler implements Runnable{
@@ -28,11 +31,18 @@ public class BackGroundTaskHandler implements Runnable{
     String searchKey;
     ProgressBar progressBar;
     ImageView imageView;
-    public BackGroundTaskHandler(Activity uiActivity) {
+    FragmentManager fm;
+    UserFragment userFragment;
+    UserController userController;
+
+    public BackGroundTaskHandler(Activity uiActivity, UserFragment userFragment, FragmentManager fm, UserController userController) {
         this.uiActivity = uiActivity;
 //        this.searchKey = searchValue;
         this.progressBar = progressBar;
         this.imageView = imageView;
+        this.fm = fm;
+        this.userFragment = userFragment;
+        this.userController = userController;
     }
 
     @Override
@@ -49,8 +59,15 @@ public class BackGroundTaskHandler implements Runnable{
             List<User> userList = gson.fromJson(searchResult, type);
 
             for (User user : userList) {
+                userController.addUser(user);
                 Log.d("KEVIN", user.getUsername());
             }
+            uiActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    fm.beginTransaction().add(R.id.userListFragment, userFragment).commit();
+                }
+            });
         }
         else{
             showError(4,"Search");
