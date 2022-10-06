@@ -1,7 +1,6 @@
 package au.edu.curtin.assignment2a;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -49,11 +48,14 @@ public class BackGroundTaskHandler implements Runnable{
     public void run() {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         SearchTask searchTask = new SearchTask(uiActivity);
-        searchTask.setSearchkey(searchKey);
         Future<String> searchResponsePlaceholder = executorService.submit(searchTask);
         String searchResult = waitingForSearch(searchResponsePlaceholder);
 
         if(searchResult!=null){
+            GetPostsTask postsRetrievalTask = new GetPostsTask(uiActivity);
+            Future<String> postsResponsePlaceHolder = executorService.submit(postsRetrievalTask);
+            String postsResult = waitingForPosts(postsResponsePlaceHolder);
+
             Gson gson = new Gson();
             Type type = new TypeToken<List<User>>() {}.getType();
             List<User> userList = gson.fromJson(searchResult, type);
@@ -62,6 +64,15 @@ public class BackGroundTaskHandler implements Runnable{
                 userController.addUser(user);
                 Log.d("KEVIN", user.getUsername());
             }
+
+            Type typePost = new TypeToken<List<Post>>() {}.getType();
+            List<Post> postList = gson.fromJson(postsResult, typePost);
+
+            for (Post post : postList) {
+                userController.addPost(post);
+                Log.d("KEVIN", "Post Added");
+            }
+
             uiActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -106,6 +117,36 @@ public class BackGroundTaskHandler implements Runnable{
         return  searchResponseData;
     }
 
+    public String waitingForPosts(Future<String> postsResponsePlaceholder){
+        uiActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+//                progressBar.setVisibility(View.VISIBLE);
+            }
+        });
+        showToast("Posts Retrieval Starts");
+        String postsResponseData =null;
+        try {
+            postsResponseData = postsResponsePlaceholder.get(6000, TimeUnit.MILLISECONDS);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            showError(1, "Posts Retrieval");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            showError(2, "Posts Retrieval");
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+            showError(3, "Posts Retrieval");
+        }
+        showToast("Posts Retrieval Ends");
+        uiActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+//                progressBar.setVisibility(View.INVISIBLE);
+            }
+        });
+        return  postsResponseData;
+    }
 
     public void showError(int code, String taskName){
         if(code ==1){
