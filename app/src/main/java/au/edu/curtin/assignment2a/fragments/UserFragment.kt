@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import au.edu.curtin.assignment2a.R
-import au.edu.curtin.assignment2a.UserController
+import au.edu.curtin.assignment2a.controllers.UserController
 import au.edu.curtin.userinfo.User
 
 class UserFragment(private val controller: UserController) : Fragment(), UserAdapter.OnItemClickListener {
@@ -43,6 +43,11 @@ class UserFragment(private val controller: UserController) : Fragment(), UserAda
     }
 
     override fun onItemClick(position: Int) {
-        TODO("Not yet implemented")
+        val clickedItem = userList[position]
+
+        parentFragmentManager.beginTransaction().apply {
+            replace(R.id.userListFragment, UserDetailsFragment(clickedItem))
+            commit()
+        }
     }
 }

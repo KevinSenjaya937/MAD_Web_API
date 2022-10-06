@@ -23,7 +23,6 @@ public class SearchTask implements Callable<String> {
     @Override
     public String call() throws Exception {
         String response=null;
-//        String endpoint = getSearchEndpoint();
         HttpURLConnection connection = remoteUtilities.openConnection(baseUrl);
         if(connection!=null){
             if(remoteUtilities.isConnectionOkay(connection)==true){

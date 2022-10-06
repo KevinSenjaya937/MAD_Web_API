@@ -3,7 +3,6 @@ package au.edu.curtin.assignment2a;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -22,6 +21,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import au.edu.curtin.assignment2a.controllers.UserController;
 import au.edu.curtin.assignment2a.fragments.UserFragment;
 import au.edu.curtin.userinfo.User;
 
@@ -106,36 +106,6 @@ public class BackGroundTaskHandler implements Runnable{
         return  searchResponseData;
     }
 
-    public Bitmap waitingForImage(Future<Bitmap> imageResponsePlaceholder){
-        uiActivity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-//                progressBar.setVisibility(View.VISIBLE);
-            }
-        });
-        showToast("Image Retrieval Starts");
-        Bitmap imageResponseData =null;
-        try {
-            imageResponseData = imageResponsePlaceholder.get(6000, TimeUnit.MILLISECONDS);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            showError(1, "Image Retrieval");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            showError(2, "Image Retrieval");
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-            showError(3, "Image Retrieval");
-        }
-        showToast("Image Retrieval Ends");
-        uiActivity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-//                progressBar.setVisibility(View.INVISIBLE);
-            }
-        });
-        return  imageResponseData;
-    }
 
     public void showError(int code, String taskName){
         if(code ==1){

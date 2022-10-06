@@ -1,4 +1,4 @@
-package au.edu.curtin.assignment2a
+package au.edu.curtin.assignment2a.controllers
 
 import au.edu.curtin.userinfo.User
 

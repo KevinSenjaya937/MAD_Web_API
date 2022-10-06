@@ -2,6 +2,7 @@ package au.edu.curtin.assignment2a
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import au.edu.curtin.assignment2a.controllers.UserController
 import au.edu.curtin.assignment2a.fragments.UserFragment
 import java.util.concurrent.Executors
 

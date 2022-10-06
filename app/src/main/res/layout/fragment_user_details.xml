@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.UserDetailsFragment">
+
+    <TextView
+        android:id="@+id/userDetailsHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="User Details"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/idHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID: "
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userDetailsHelperText" />
+
+    <TextView
+        android:id="@+id/nameHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idHelperText" />
+
+    <TextView
+        android:id="@+id/usernameHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameHelperText" />
+
+    <TextView
+        android:id="@+id/emailHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameHelperText" />
+
+    <TextView
+        android:id="@+id/phoneHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailHelperText" />
+
+    <TextView
+        android:id="@+id/websiteHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Website: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneHelperText" />
+
+    <TextView
+        android:id="@+id/addressHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address Details"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/websiteHelperText" />
+
+
+
+    <TextView
+        android:id="@+id/streetHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Street: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressHelperText" />
+
+    <TextView
+        android:id="@+id/suiteHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suite: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/streetHelperText" />
+
+    <TextView
+        android:id="@+id/cityHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suiteHelperText" />
+
+    <TextView
+        android:id="@+id/zipcodeHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zipcode: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityHelperText" />
+
+    <TextView
+        android:id="@+id/geoHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Geo Details"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zipcodeHelperText" />
+
+    <TextView
+        android:id="@+id/latitudeHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latitude: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/geoHelperText" />
+
+    <TextView
+        android:id="@+id/longitudeHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Longitude: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latitudeHelperText" />
+
+    <TextView
+        android:id="@+id/companyHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company Details"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/longitudeHelperText" />
+
+    <TextView
+        android:id="@+id/companyNameHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company Name: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyHelperText" />
+
+    <TextView
+        android:id="@+id/catchPhraseHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Catch Phrase: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyNameHelperText" />
+
+    <TextView
+        android:id="@+id/sloganHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Business Slogan: "
+        android:layout_marginTop="4dp"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/catchPhraseHelperText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
